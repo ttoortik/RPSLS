@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources tools:keep="@string/firebase_database_url,@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id,@string/default_web_client_id" xmlns:tools="http://schemas.android.com/tools">
+  <string name="firebase_database_url" translatable="false">https://rockpapers-466e3.firebaseio.com</string>
+  <string name="gcm_defaultSenderId" translatable="false">148015638692</string>
+  <string name="google_storage_bucket" translatable="false">rockpapers-466e3.appspot.com</string>
+  <string name="project_id" translatable="false">rockpapers-466e3</string>
+  <string name="google_api_key" translatable="false">AIzaSyAdEBQdI7cuAm41Jvx0mmYdX6xzzS8Hjfs</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAdEBQdI7cuAm41Jvx0mmYdX6xzzS8Hjfs</string>
+  <string name="google_app_id" translatable="false">1:148015638692:android:82d82342e7588a562a5e31</string>
+  <string name="default_web_client_id" translatable="false">148015638692-v1rl72qb0a1ibpnueh4687tloja6anqe.apps.googleusercontent.com</string>
+</resources>

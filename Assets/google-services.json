@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "148015638692",
+    "firebase_url": "https://rockpapers-466e3.firebaseio.com",
+    "project_id": "rockpapers-466e3",
+    "storage_bucket": "rockpapers-466e3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:148015638692:android:82d82342e7588a562a5e31",
+        "android_client_info": {
+          "package_name": "com.ttoortik.RPSLS"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "148015638692-v1rl72qb0a1ibpnueh4687tloja6anqe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdEBQdI7cuAm41Jvx0mmYdX6xzzS8Hjfs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "148015638692-v1rl72qb0a1ibpnueh4687tloja6anqe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
