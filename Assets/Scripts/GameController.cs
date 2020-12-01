@@ -117,7 +117,7 @@ public class GameController : MonoBehaviour
         scissors.enabled = false;
         lizard.enabled = false;
         spok.enabled = false;
-        end.gameObject.SetActive(true);
+        StartCoroutine(Timer());
     }
 
     public void RockChoose()
@@ -195,5 +195,11 @@ public class GameController : MonoBehaviour
         lizard.enabled = true;
         spok.enabled = true;
         figure.text = "Выберете фигуру";
+    }
+
+    IEnumerator Timer()
+    {
+        yield return new WaitForSeconds(5);
+        EndBattle();
     }
 }
