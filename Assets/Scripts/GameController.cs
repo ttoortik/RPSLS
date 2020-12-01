@@ -49,7 +49,7 @@ public class GameController : MonoBehaviour
             error.gameObject.SetActive(false);
             main.gameObject.SetActive(false);
             choiceMenu.gameObject.SetActive(true);
-            gameName.text += playerName;
+            gameName.text = "Боец: "+ playerName;
         }
     }
 
@@ -72,6 +72,7 @@ public class GameController : MonoBehaviour
                     figure.text += "\nПолучилась ничья :|";
                 else
                     figure.text += "\nВы победили!!! >:)";
+                rock.enabled=false;
                 break;
             case 1:
                 if (playerChoice == "sc" || playerChoice == "l")
@@ -80,6 +81,7 @@ public class GameController : MonoBehaviour
                     figure.text += "\nПолучилась ничья :|";
                 else
                     figure.text += "\nВы победили!!! >:)";
+                paper.enabled = false;
                 break;
             case 2:
                 if (playerChoice == "r" || playerChoice == "sp")
@@ -88,6 +90,7 @@ public class GameController : MonoBehaviour
                     figure.text += "\nПолучилась ничья :|";
                 else
                     figure.text += "\nВы победили!!! >:)";
+                scissors.enabled = false;
                 break;
             case 3:
                 if (playerChoice == "sc" || playerChoice == "r")
@@ -96,6 +99,7 @@ public class GameController : MonoBehaviour
                     figure.text += "\nПолучилась ничья :|";
                 else
                     figure.text += "\nВы победили!!! >:)";
+                lizard.enabled = false;
                 break;
             case 4:
                 if (playerChoice == "p" || playerChoice == "l")
@@ -104,9 +108,15 @@ public class GameController : MonoBehaviour
                     figure.text += "\nПолучилась ничья :|";
                 else
                     figure.text += "\nВы победили!!! >:)";
+                spok.enabled = false;
                 break;
 
         }
+        rock.enabled = false;
+        paper.enabled = false;
+        scissors.enabled = false;
+        lizard.enabled = false;
+        spok.enabled = false;
         end.gameObject.SetActive(true);
     }
 
@@ -172,7 +182,18 @@ public class GameController : MonoBehaviour
     public void EndBattle()
     {
         end.gameObject.SetActive(false);
+        paper.gameObject.SetActive(true);
+        scissors.gameObject.SetActive(true);
+        lizard.gameObject.SetActive(true);
+        rock.gameObject.SetActive(true);
+        spok.gameObject.SetActive(true);
         choiceMenu.gameObject.SetActive(false);
         main.gameObject.SetActive(true);
+        rock.enabled = true;
+        paper.enabled = true;
+        scissors.enabled = true;
+        lizard.enabled = true;
+        spok.enabled = true;
+        figure.text = "Выберете фигуру";
     }
 }
