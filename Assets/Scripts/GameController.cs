@@ -21,6 +21,7 @@ public class GameController : MonoBehaviour
     public Button scissors;
     public Button lizard;
     public Button spok;
+    public Button end;
     public  static string playerChoice;
     enum Figures
     {
@@ -106,7 +107,7 @@ public class GameController : MonoBehaviour
                 break;
 
         }
-                
+        end.gameObject.SetActive(true);
     }
 
     public void RockChoose()
@@ -168,5 +169,10 @@ public class GameController : MonoBehaviour
         SendToDatabase();
         GameFlow();
     }
-
+    public void EndBattle()
+    {
+        end.gameObject.SetActive(false);
+        choiceMenu.gameObject.SetActive(false);
+        main.gameObject.SetActive(true);
+    }
 }
