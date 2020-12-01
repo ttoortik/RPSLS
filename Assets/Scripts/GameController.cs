@@ -31,9 +31,10 @@ public class GameController : MonoBehaviour
         Lizard,
         Spok
     }
-    void Start()
+    IEnumerator Timer()
     {
-
+        yield return new WaitForSeconds(5);
+        EndBattle();
     }
 
     public void OnSubmit()
@@ -197,9 +198,5 @@ public class GameController : MonoBehaviour
         figure.text = "Выберете фигуру";
     }
 
-    IEnumerator Timer()
-    {
-        yield return new WaitForSeconds(5);
-        EndBattle();
-    }
+  
 }
