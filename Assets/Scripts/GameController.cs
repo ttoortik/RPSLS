@@ -16,26 +16,19 @@ public class GameController : MonoBehaviour
     public Text error;
     public Text gameName;
     public Text figure;
-    public Button rock;
-    public Button paper;
-    public Button scissors;
-    public Button lizard;
-    public Button spok;
     public Button end;
     public  static string playerChoice;
-    enum Figures
+    public bool IsStarted;
+    public Button[] signs;
+    string[] Figures = new string[]
     {
-        Rock,
-        Paper,
-        Scissors,
-        Lizard,
-        Spok
-    }
-    IEnumerator Timer()
-    {
-        yield return new WaitForSeconds(5);
-        EndBattle();
-    }
+        "Камень",
+        "Бумага",
+        "Ножницы",
+        "Ящерица",
+        "Спок"
+    };
+
 
     public void OnSubmit()
     {
@@ -54,13 +47,13 @@ public class GameController : MonoBehaviour
         }
     }
 
-    private void SendToDatabase()
+   /* private void SendToDatabase()
     {
         User user = new User();
         RestClient.Post("https://rockpapers-466e3.firebaseio.com/.json", user);
-    }
+    }*/
 
-    public void GameFlow()
+    /*public void GameFlow()
     {
         Random bot = new Random() ;
         int botChoice = bot.Next(0,4);
@@ -113,90 +106,30 @@ public class GameController : MonoBehaviour
                 break;
 
         }
-        rock.enabled = false;
-        paper.enabled = false;
-        scissors.enabled = false;
-        lizard.enabled = false;
-        spok.enabled = false;
         StartCoroutine(Timer());
+    }*/
+    public void SendChoose(int choice)
+    {
+        FirebaseController.Instance.SendChoose(choice);
+        figure.text ="Ваша фигура: "+ Figures[choice] +"\nОжидание противника...";
+        foreach (var sign in signs)
+        {
+            sign.gameObject.SetActive(false);
+            signs[choice].gameObject.SetActive(true);
+        }
     }
 
-    public void RockChoose()
-    {
-        playerChoice = "r";
-        paper.gameObject.SetActive(false);
-        scissors.gameObject.SetActive(false);
-        lizard.gameObject.SetActive(false);
-        spok.gameObject.SetActive(false);
-        figure.text = "Ваша фигура: Камень";
-        SendToDatabase();
-        GameFlow();
-    }
-
-    public void PaperChoose()
-    {
-        playerChoice = "p";
-        rock.gameObject.SetActive(false);
-        scissors.gameObject.SetActive(false);
-        lizard.gameObject.SetActive(false);
-        spok.gameObject.SetActive(false);
-        figure.text = "Ваша фигура: Бумага";
-        SendToDatabase();
-        GameFlow();
-    }
-
-    public void ScissorsChoose()
-    {
-        playerChoice = "sc";
-        paper.gameObject.SetActive(false);
-        rock.gameObject.SetActive(false);
-        lizard.gameObject.SetActive(false);
-        spok.gameObject.SetActive(false);
-        figure.text = "Ваша фигура: Ножницы";
-        SendToDatabase();
-        GameFlow();
-    }
-
-    public void LizardChoose()
-    {
-        playerChoice = "l";
-        paper.gameObject.SetActive(false);
-        scissors.gameObject.SetActive(false);
-        rock.gameObject.SetActive(false);
-        spok.gameObject.SetActive(false);
-        figure.text = "Ваша фигура: Ящерица";
-        SendToDatabase();
-        GameFlow();
-    }
-
-    public void SpokChoose()
-    {
-        playerChoice = "sp";
-        paper.gameObject.SetActive(false);
-        scissors.gameObject.SetActive(false);
-        lizard.gameObject.SetActive(false);
-        rock.gameObject.SetActive(false);
-        figure.text = "Ваша фигура: Спок";
-        SendToDatabase();
-        GameFlow();
-    }
     public void EndBattle()
     {
         end.gameObject.SetActive(false);
-        paper.gameObject.SetActive(true);
-        scissors.gameObject.SetActive(true);
-        lizard.gameObject.SetActive(true);
-        rock.gameObject.SetActive(true);
-        spok.gameObject.SetActive(true);
+        foreach(Button sign in signs)
+            sign.gameObject.SetActive(true);
         choiceMenu.gameObject.SetActive(false);
         main.gameObject.SetActive(true);
-        rock.enabled = true;
-        paper.enabled = true;
-        scissors.enabled = true;
-        lizard.enabled = true;
-        spok.enabled = true;
+        foreach (var sign in signs)
+            sign.interactable = true;
         figure.text = "Выберете фигуру";
     }
 
-  
+
 }
